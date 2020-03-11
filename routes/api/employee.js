@@ -47,6 +47,17 @@ function initEmployee(db) {
       return res.status(200).json(docs);
     });
   });//ByCompany
+
+  router.get('/bytag/:tag',(req, res)=>{
+    var tag =  req.params.tag ;
+    empModel.getEmployeesByTag(tag, (err, docs)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({"error":"error"});
+      }
+      return res.status(200).json(docs);
+    });
+  });//ByTag
   
   return router;
 }

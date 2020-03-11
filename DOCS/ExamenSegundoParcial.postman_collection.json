@@ -95,6 +95,34 @@
 				"description": "Obtiene los empleados de una compañia en especifico\n"
 			},
 			"response": []
+		},
+		{
+			"name": "/api/employees/bytag/:tag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/employees/bytag/:tag",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"bytag",
+						":tag"
+					],
+					"variable": [
+						{
+							"key": "tag",
+							"value": "deserunt"
+						}
+					]
+				},
+				"description": "Obtiene los empleados segun el tag que se provee"
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
