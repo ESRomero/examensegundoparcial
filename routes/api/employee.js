@@ -70,6 +70,17 @@ function initEmployee(db) {
       return res.status(200).json(doc);
       }); 
   });//Add Tag
+
+  router.delete('/delete/:id', (req, res)=>{
+    var id = req.params.id;
+    empModel.removeEmployee(id, (err, deletedDoc)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({"error":"error"});
+      }
+      return res.status(200).json(deletedDoc);
+    }); 
+  });//delete
   
   return router;
 }
