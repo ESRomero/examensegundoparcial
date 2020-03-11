@@ -4,9 +4,7 @@ function employeeModel(db){
   var lib = {};
   var empColl = db.collection('employees');
   lib.getEmployees = (handler)=>{
-    // implementar
-    // obtener todos los documentos
-    return handler(new Error("No Implementado"), null);
+    empColl.find({}).toArray(handler);
   }
 
   lib.getEmployeesById = (id, handler) => {
