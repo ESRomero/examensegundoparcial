@@ -54,10 +54,22 @@ function employeeModel(db){
   }
 
   lib.addEmployeeATag = ( tag, id, handler) => {
-    //Implementar
-    //Se requiere agregar a un documento un nuevo tag
-    // $push
-    return handler(new Error("No Implementado"), null);
+    var query = { "_id": new ObjectID(id)};
+    var TagToAdd = { 
+      "$push":{
+        "tags": tag
+      }
+    };
+    empColl.updateOne(
+      query,
+      TagToAdd,
+      (err, doc)=>{
+        if(err){
+          return handler(err, null);
+        }
+        return handler(null, doc);
+      }
+    );
   }
 
   lib.removeEmployee = (id, handler) => {
