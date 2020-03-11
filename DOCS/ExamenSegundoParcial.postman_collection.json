@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "4e2bc0ca-71c1-4bf5-b199-c0234d6aa238",
+		"name": "ExamenSegundoParcial",
+		"description": "ExamenSegundoParcial Seminario de Software\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/employees/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/employees/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/employees/byid/:id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/employees/byid/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"byid",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5e68260c011d4989d9fa4319"
+						}
+					]
+				},
+				"description": "Obtiene el nombre, edad, correo y telefono del empleado con el id\n"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/employees/bycompany/:company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/employees/bycompany/:company",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"bycompany",
+						":company"
+					],
+					"variable": [
+						{
+							"key": "company",
+							"value": "CONJURICA"
+						}
+					]
+				},
+				"description": "Obtiene los empleados de una compañia en especifico\n"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

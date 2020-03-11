@@ -3,7 +3,7 @@ var ObjectID = require('mongodb').ObjectID;
 function employeeModel(db){
   var lib = {};
   var empColl = db.collection('employees');
-  
+
   lib.getEmployees = (handler)=>{
     empColl.find({}).toArray(handler);
   }
@@ -24,9 +24,18 @@ function employeeModel(db){
   }
 
   lib.getEmployeesByCompany = (company, handler) => {
-    // implementar
-    // solo mostrar name, email, company
-    return handler(new Error("No Implementado"), null);
+    var query = {"company":company};
+    var projection = { "name": 1, "email": 1, "company":1};
+    empColl.find(
+      query,
+      {"projection":projection}).toArray(
+      (err, employees)=>{
+        if(err){
+          return handler(err,null);
+        }
+        return handler(null, employees);
+      }
+    )
   }
 
   lib.getEmployeesByTag = (tag, handler) => {

@@ -37,6 +37,16 @@ function initEmployee(db) {
     });
   });//ByID
 
+  router.get('/bycompany/:company',(req, res)=>{
+    var company =  req.params.company ;
+    empModel.getEmployeesByCompany(company, (err, docs)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({"error":"error"});
+      }
+      return res.status(200).json(docs);
+    });
+  });//ByCompany
   
   return router;
 }
