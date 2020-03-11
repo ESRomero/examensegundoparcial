@@ -81,6 +81,17 @@ function initEmployee(db) {
       return res.status(200).json(deletedDoc);
     }); 
   });//delete
+
+  router.post('/makeolder', (req, res)=>{
+    var age =parseInt(req.body.age);
+    empModel.increaseAgeToAll(age, (err, doc)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({error:'error'});
+      }
+      return res.status(200).json(doc);
+      }); 
+  });//Make People older
   
   return router;
 }

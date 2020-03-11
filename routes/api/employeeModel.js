@@ -86,10 +86,21 @@ function employeeModel(db){
   }
 
   lib.increaseAgeToAll = (ageDelta, handler) => {
-    //Implementar
-    //Se requiere modificar todos los documentos de la colección
-    // incrementando age por la cantidad de ageDelta $inc
-    return handler(new Error("No Implementado"), null);
+    var AgeToAdd = { 
+      "$inc" :{
+        "age": ageDelta
+      }
+    };
+    empColl.updateMany(
+      {},
+      AgeToAdd,
+      (err, Addrslt)=>{
+        if(err){
+          return handler(err, null);
+        }
+        return handler(null, Addrslt.result);
+      }
+    );
   }
   return lib;
 }

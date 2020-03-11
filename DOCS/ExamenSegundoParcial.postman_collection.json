@@ -196,6 +196,44 @@
 				"description": "Permite eliminar por completo un empleado de la base de datos al que corresponda el ID que se proveio"
 			},
 			"response": []
+		},
+		{
+			"name": "/api/employees/makeolder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "age",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/employees/makeolder",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"employees",
+						"makeolder"
+					]
+				},
+				"description": "Este permite agregar cierta cantidad de años a TODOS los empleados de la base de datos"
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
